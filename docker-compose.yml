@@ -1,0 +1,13 @@
+services:
+  g1:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: aerosight-g1:humble
+    container_name: aerosight_g1
+    volumes:
+      - .:/ws/AeroSight-ROS2
+    ports:
+      - "6081:6080"   # noVNC -> http://localhost:6081/vnc.html?autoconnect=1&resize=scale
+    shm_size: "1gb"
+    tty: true
